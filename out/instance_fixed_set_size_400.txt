@@ -1,0 +1,4 @@
+Valor da Solucao: 11366.0
+Gap de Otimalidade: 414.33%
+Tempo de Execucao: 600.11 segundos
+Limite de tempo atingido

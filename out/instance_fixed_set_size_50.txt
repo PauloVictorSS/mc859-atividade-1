@@ -1,0 +1,3 @@
+Valor da Solucao: 595.0
+Gap de Otimalidade: 0.00%
+Tempo de Execucao: 0.67 segundos
