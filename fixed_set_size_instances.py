@@ -1,14 +1,14 @@
 import random
 
-def generate_instance(n, set_size):
+def generate_instance(filename_prefix, n, set_size, min_coef, max_coef, use_int_coef):
   subsets = []
   universe = set(range(1, n + 1))
   covered_elements = set()
 
-  filename = f"in/instance_fixed_set_size_{n}.txt"
+  filename = "in/" + filename_prefix + f"_{n}.txt"
 
   for _ in range(n):
-    current_set = set(random.sample(range(1, n + 1), set_size))
+    current_set = set(random.sample(range(1, n + 1), random.randint(1, n // 2) if set_size == 0 else set_size))
     subsets.append(current_set)
     covered_elements.update(current_set)
 
@@ -22,7 +22,7 @@ def generate_instance(n, set_size):
   coefficients = {}
   for i in range(1, n + 1):
     for j in range(i, n + 1):
-      coefficients[(i, j)] = random.randint(-10, 10)
+      coefficients[(i, j)] = random.randint(min_coef, max_coef) if use_int_coef else random.uniform(min_coef, max_coef)
 
   with open(filename, 'w') as f:
     f.write(f"{n}\n")
@@ -41,4 +41,4 @@ def generate_instance(n, set_size):
 
 
 for n in [25, 50, 100, 200, 400]:
-  generate_instance(n, 3)
+  generate_instance("teste", n, 0, -10, 10, False)
