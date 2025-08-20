@@ -76,6 +76,8 @@ def solve_max_sc_qbf_linearized(instance_file):
     # 10. Coletar e imprimir os resultados
     if model.status == GRB.OPTIMAL or model.status == GRB.TIME_LIMIT:
       with open("out/" + instance_file, 'w') as f:
+        solucao_selecionada = [i for i in range(n) if x[i].X > 0.5]
+        f.write(f"Subconjuntos selecionados (indices): {solucao_selecionada}\n")
         f.write(f"Valor da Solucao: {model.ObjVal}\n")
         f.write(f"Gap de Otimalidade: {model.MIPGap * 100:.2f}%\n")
         f.write(f"Tempo de Execucao: {model.Runtime:.2f} segundos\n")
@@ -91,5 +93,8 @@ def solve_max_sc_qbf_linearized(instance_file):
     print('Ocorreu um erro de I/O ao ler o arquivo: ' + str(e))
 
 # Exemplo de uso
-instance_filename = "instance_fixed_set_size_400.txt"
-solve_max_sc_qbf_linearized(instance_filename)
+solve_max_sc_qbf_linearized("instance_fixed_set_size_25.txt")
+solve_max_sc_qbf_linearized("instance_fixed_set_size_50.txt")
+solve_max_sc_qbf_linearized("instance_fixed_set_size_100.txt")
+solve_max_sc_qbf_linearized("instance_fixed_set_size_200.txt")
+solve_max_sc_qbf_linearized("instance_fixed_set_size_400.txt")
