@@ -1,0 +1,4 @@
+Subconjuntos selecionados (indices): [2, 4, 5, 6, 7, 8, 9, 11, 12, 13, 16, 18, 19, 20, 21, 23, 24]
+Valor da Solucao: 195.0
+Gap de Otimalidade: 0.00%
+Tempo de Execucao: 0.07 segundos

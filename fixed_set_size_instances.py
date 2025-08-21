@@ -58,4 +58,6 @@ def generate_instance(filename_prefix, n, set_size, min_coef, max_coef, use_int_
 
 
 for n in [25, 50, 100, 200, 400]:
-  generate_instance("teste", n, 0, -10, 10, True)
+  generate_instance("size_3_range10_intcoeff", n, 3, -10, 10, True)
+  generate_instance("size_n_over_2_range1000_intcoeff", n, n // 2, -1000, 1000, True)
+  generate_instance("size_random_range10_floatcoeff", n, 0, -10, 10, False)

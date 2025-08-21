@@ -24,7 +24,7 @@ def solve_max_sc_qbf_linearized(instance_file):
     a = {}
     line_idx = n + 2
     for i in range(n):
-      row_coeffs = list(map(int, lines[line_idx + i].strip().split()))
+      row_coeffs = list(map(float, lines[line_idx + i].strip().split()))
       for j_idx in range(len(row_coeffs)):
         j = i + j_idx
         a[(i, j)] = row_coeffs[j_idx]
@@ -93,8 +93,11 @@ def solve_max_sc_qbf_linearized(instance_file):
     print('Ocorreu um erro de I/O ao ler o arquivo: ' + str(e))
 
 # Exemplo de uso
-solve_max_sc_qbf_linearized("instance_fixed_set_size_25.txt")
-solve_max_sc_qbf_linearized("instance_fixed_set_size_50.txt")
-solve_max_sc_qbf_linearized("instance_fixed_set_size_100.txt")
-solve_max_sc_qbf_linearized("instance_fixed_set_size_200.txt")
-solve_max_sc_qbf_linearized("instance_fixed_set_size_400.txt")
+for n in [25, 50, 100, 200, 400]:
+  solve_max_sc_qbf_linearized(f"size_3_range10_intcoeff_{n}.txt")
+
+for n in [25, 50, 100, 200, 400]:
+  solve_max_sc_qbf_linearized(f"size_n_over_2_range1000_intcoeff_{n}.txt")
+
+for n in [25, 50, 100, 200, 400]:
+  solve_max_sc_qbf_linearized(f"size_random_range10_floatcoeff_{n}.txt")
