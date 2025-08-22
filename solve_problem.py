@@ -92,12 +92,14 @@ def solve_max_sc_qbf_linearized(instance_file):
   except IOError as e:
     print('Ocorreu um erro de I/O ao ler o arquivo: ' + str(e))
 
-# Exemplo de uso
+# Tamanho de subconjunto fixo 3, coeficientes inteiros entre -10 e 10
 for n in [25, 50, 100, 200, 400]:
   solve_max_sc_qbf_linearized(f"size_3_range10_intcoeff_{n}.txt")
 
+# Tamanho de subconjunto fixo n / 2, coeficientes inteiros entre -1000 e 1000
 for n in [25, 50, 100, 200, 400]:
   solve_max_sc_qbf_linearized(f"size_n_over_2_range1000_intcoeff_{n}.txt")
 
+# Tamanho de subconjunto entre 1 e n / 2, coeficientes reais entre -10 e 10
 for n in [25, 50, 100, 200, 400]:
   solve_max_sc_qbf_linearized(f"size_random_range10_floatcoeff_{n}.txt")
